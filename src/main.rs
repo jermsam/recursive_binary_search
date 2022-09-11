@@ -27,12 +27,17 @@ fn recursive_binary_search (list: &[i8], target: &i8) -> Option<i8> {
 
 fn verify(list:&[i8], target: &i8, search: &dyn Fn(&[i8], &i8) -> Option<i8>) {
     let index: Option<i8> = search(&list, &target);
-    match index {
-        None => {
-            println!("There is no match for {} in {:?}.", target,list);
-        },
-        Some(i) => {
-            println!("Position of {} in {:?} is {}", target, list,i);
-        },
+    // match index {
+    //     None => {
+    //         println!("There is no match for {} in {:?}.", target,list);
+    //     },
+    //     Some(i) => {
+    //         println!("Position of {} in {:?} is {}", target, list,i);
+    //     },
+    // }
+    if let Some(i) = index {
+        println!("Position of {} in {:?} is {}", target, list,i);
+    } else {
+        println!("There is no match for {} in {:?}.", target,list);
     }
 }
